@@ -1,9 +1,12 @@
 import React from 'react'
+import {Box, Button, Flex, Image, Link, Spacer} from '@chakra-ui/react'
+// import Facebook from "./assets/social-media/Facebook-Image.jpeg"
+// import Twitter from "./assets/social-media/Twitter-Image.png"
 
 const NavBar = ({accounts, setAccounts}) => {
     const isConnected = Boolean(accounts[0])
 
-    asyn function connectAccount() {
+    async function connectAccount() {
         if (window.ethereum) {
             const accounts = await window.ethereum.request({
                 method: "eth_requestAccounts",
@@ -12,25 +15,46 @@ const NavBar = ({accounts, setAccounts}) => {
         }
     }
   return (
-    <div>NavBar
+    <Flex justify="space-between" align="center" padding="30px">
         {/* Leftside - Social Media */}
-        <div>Facebook</div>
-        <div>Twitter</div>
+        <Flex justify="space-around" width="40%" padding="0 75px">
+            <Link href="https://www.facebook.com">
+                <Image src="{Facebook}" boxSize="42px" margin="0 15px" />
+            </Link>
+            <Link href="https://www.twitter.com">
+                <Image src="{Twitter}" boxSize="42px" margin="0 15px" />
+            </Link>
+        </Flex>
 
-    {/* Rightside - Sections and Connection */}
-        <div>About</div>
-        <div>Mint</div>
-        <div>Team</div>
-
-    {/* Connected */}
-    {isConnected ? (
-        <p>Connected</p>
-    ) : (
-        <button onClick={connectAccount}>Connect</button>
-    )}
-        
-    </div>
-  )
-}
+        {/* Rightside - Sections and Connection */}
+        <Flex justify="space-around" align="center" width="40%"        padding="30px">
+            <Box margin="0 15px">About </Box>
+            <Spacer />
+            <Box margin="0 15px">Mint </Box>
+            <Spacer />
+            <Box margin="0 15px">Team </Box>
+            <Spacer />
+            
+            {/* Connected */}
+            {isConnected ? (
+             <Box margin="0 15px">Connected</Box>
+            ) : (
+             <Button 
+                backgroundColor="#D6517D"
+                borderRadius="5px"
+                boxShadow="0px 2px 2px 1px #0F0F0F"
+                color="white"
+                cursor="pointer"
+                fontFamily="inherit"
+                padding="15px"
+                margin="0 15px"
+                onClick={connectAccount}>
+                Connect
+             </Button>
+            )}
+        </Flex>
+    </Flex>
+  );
+};
 
 export default NavBar

@@ -7,10 +7,13 @@ function App() {
   const [accounts, setAccounts] = useState([])
 
   return (
-    <div className="App">
-      <NavBar accounts={accounts} setAccounts={setAccounts} />
-      <Mint accounts={accounts} setAccounts={setAccounts} />
-      
+    <div className='overlay'>
+      <div className="App">
+        <NavBar accounts={accounts} setAccounts={setAccounts} />
+        <Mint accounts={accounts} setAccounts={setAccounts} />
+        
+      </div>
+      <div></div>
     </div>
   );
 }
