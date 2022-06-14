@@ -1,15 +1,7 @@
-# Basic Sample Hardhat Project
+CAPSTONE || Web Development Specialization Using React.js, hardhat, google fonts, and chakra.
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
+Main Features: Will be able to connect MetaMask Wallet to website. Will be able to toggle to mint 1,2, or 3 "NFTs" (no actual NFTs are generated). Will be able to look at the top the crytpos by market capitalization.
 
-Try running some of the following tasks:
+Will satisfy the following conditions: Server - crypto api *Handles requests *Sends responses
 
-```shell
-npx hardhat accounts
-npx hardhat compile
-npx hardhat clean
-npx hardhat test
-npx hardhat node
-node scripts/sample-script.js
-npx hardhat help
-```
+Front end *Has 3-5 interactive features *Communicates with server *Has at least 5 components Social Media Connection Mint Title Top Cryptos *Stores values on state *Uses values from state to display information and/or make requests *Uses props to pass data and/or methods *Includes custom styling Chakra and Google Fonts
