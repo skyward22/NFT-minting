@@ -1,8 +1,8 @@
 // SPDX-License-Identifer: UNLICENSED
 pragma solidity ^0.8.4; 
 
-import '@openzeppelin/contracts/token/ERC721/ERC721.sol';
-import '@openzeppelin/contracts/access/Ownable.sol';
+import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract Cryptopia is ERC721, Ownable {
     uint256 public mintPrice;
@@ -14,7 +14,7 @@ contract Cryptopia is ERC721, Ownable {
     address payable public withdrawlWallet;
     mapping(address => uint256) public walletMints;
 
-    constructor() payable ERC721('Cryptopia', 'AP'){
+    constructor() payable ERC721('Cryptopia', 'CP'){
         mintPrice = .01 ether;
         totalSupply = 0;
         maxSupply = 1000;

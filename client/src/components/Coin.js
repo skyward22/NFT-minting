@@ -1,19 +1,17 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 function Coin({ name, icon, price, symbol }) {
-
-  const [backendData, setBackendData] = useState([{}])
-  const [listOfCoins, setListOfCoins] = useState([])
+  const [listOfCoins, setListOfCoins] = useState([]);
 
   useEffect(() => {
-    fetch("https://api.coinstats.app/public/v1/coins?skip=0&limit=3").then(
-      (response) => {
-        console.log(response)
+    axios
+      .get("https://api.coinstats.app/public/v1/coins?skip=0&limit=3")
+      .then((response) => {
+        console.log(response);
         setListOfCoins(response.data.coins);
-      }
-    );
+      });
   }, []);
-
 
   return (
     <div className="crypto">
