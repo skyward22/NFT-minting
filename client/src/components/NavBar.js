@@ -1,5 +1,6 @@
 import React from "react";
 import { Box, Button, Flex, Spacer } from "@chakra-ui/react";
+import { Link, Route, Routes } from "react-router-dom";
 import Social from "./Social";
 
 const NavBar = ({ accounts, setAccounts }) => {
@@ -17,6 +18,7 @@ const NavBar = ({ accounts, setAccounts }) => {
     <Flex justify="space-between" align="center" padding="30px">
       {/* Bottom - Social Media */}
       <Social />
+      {/* <Link to="/cryptomarket"> Crypto Market</Link> */}
       {/* Rightside - Sections and Connection */}
       <Flex justify="space-around" align="center" width="40%" padding="30px">
         {/* <Box margin="0 15px">About </Box>

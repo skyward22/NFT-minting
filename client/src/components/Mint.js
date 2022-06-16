@@ -1,14 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ethers, BigNumber } from "ethers";
 import { Box, Button, Flex, Input, Text } from "@chakra-ui/react";
 import cryptopiaNFT from "../CryptopiaNFT.json";
 import Title from "./Title";
+import Coin from "./Coin";
+import Axios from "axios";
 
 const cryptopiaNFTAddress = "0x8DEe11E660dE0148ccEdAc85916D398785e6bD66";
 
 const Mint = ({ accounts, setAccounts }) => {
   const [mintAmount, setMintAmount] = useState(1);
   const isConnected = Boolean(accounts[0]);
+  const [listOfCoins, setListOfCoins] = useState([]);
+
+  useEffect(() => {
+    Axios.get("http://localhost:4000/gettopcrypto").then((res) =>
+      setListOfCoins(res.data)
+    );
+  }, []);
+
+  const filteredCoins = listOfCoins.filter((coin) => {
+    return coin.name.toLowerCase();
+  });
+  console.log(filteredCoins);
 
   async function handleMint() {
     if (window.ethereum) {
@@ -113,6 +127,18 @@ const Mint = ({ accounts, setAccounts }) => {
           <p>You're not connected. Please "Connect" in order to mint.</p>
         )}
       </Box>
+      <div className="cryptoDisplay">
+        {filteredCoins.map((crypto) => {
+          return (
+            <Coin
+              name={crypto.name}
+              icon={crypto.icon}
+              price={crypto.price}
+              symbol={crypto.symbol}
+            />
+          );
+        })}
+      </div>
     </Flex>
   );
 };
