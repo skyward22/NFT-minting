@@ -55,79 +55,86 @@ const Mint = ({ accounts, setAccounts }) => {
   };
 
   return (
-    <Flex justify="center" align="center" height="100vh" paddingBottom="150px">
-      <Box width="520px">
-        <div>
-          <Title />
-          <Text
-            fontSize="30px"
-            letterSpacing="-5.5%"
-            fontFamily="VT323"
-            textShadow="0 2px 2px #000000"
-          >
-            It's the future. What will happen next will depend on you.
-          </Text>
-        </div>
-        {isConnected ? (
+    <div>
+      <Flex
+        justify="center"
+        align="center"
+        height="100vh"
+        paddingBottom="150px"
+      >
+        <Box width="520px">
           <div>
-            <Flex align="center" justify="center">
-              <Button
-                backgroundColor="#D6517D"
-                borderRadius="5px"
-                boxShadow="0px 2px 2px 1px #0F0F0F"
-                color="white"
-                cursor="pointer"
-                fontFamily="inherit"
-                padding="15px"
-                marginTop="10px"
-                onClick={handleDecrement}
-              >
-                -
-              </Button>
-              <Input
-                readOnly
-                fontFamily="inherit"
-                width="100px"
-                height="40px"
-                textAlign="center"
-                paddingLeft="19px"
-                marginTop="10px"
-                type="number"
-                value={mintAmount}
-              />
-              <Button
-                backgroundColor="#D6517D"
-                borderRadius="5px"
-                boxShadow="0px 2px 2px 1px #0F0F0F"
-                color="white"
-                cursor="pointer"
-                fontFamily="inherit"
-                padding="15px"
-                marginTop="10px"
-                onClick={handleIncrement}
-              >
-                +
-              </Button>
-            </Flex>
-            <Button
-              backgroundColor="#D6517D"
-              borderRadius="5px"
-              boxShadow="0px 2px 2px 1px #0F0F0F"
-              color="white"
-              cursor="pointer"
-              fontFamily="inherit"
-              padding="15px"
-              marginTop="10px"
-              onClick={handleMint}
+            <Title />
+            <Text
+              fontSize="30px"
+              letterSpacing="-5.5%"
+              fontFamily="VT323"
+              textShadow="0 2px 2px #000000"
             >
-              Mint Here
-            </Button>
+              It's the future. What will happen next will depend on you.
+            </Text>
           </div>
-        ) : (
-          <p>You're not connected. Please "Connect" in order to mint.</p>
-        )}
-      </Box>
-      <div className="cryptoDisplay">
+          {isConnected ? (
+            <div>
+              <Flex align="center" justify="center">
+                <Button
+                  backgroundColor="#D6517D"
+                  borderRadius="5px"
+                  boxShadow="0px 2px 2px 1px #0F0F0F"
+                  color="white"
+                  cursor="pointer"
+                  fontFamily="inherit"
+                  padding="15px"
+                  marginTop="10px"
+                  onClick={handleDecrement}
+                >
+                  -
+                </Button>
+                <Input
+                  readOnly
+                  fontFamily="inherit"
+                  width="100px"
+                  height="40px"
+                  textAlign="center"
+                  paddingLeft="19px"
+                  marginTop="10px"
+                  type="number"
+                  value={mintAmount}
+                />
+                <Button
+                  backgroundColor="#D6517D"
+                  borderRadius="5px"
+                  boxShadow="0px 2px 2px 1px #0F0F0F"
+                  color="white"
+                  cursor="pointer"
+                  fontFamily="inherit"
+                  padding="15px"
+                  marginTop="10px"
+                  onClick={handleIncrement}
+                >
+                  +
+                </Button>
+              </Flex>
+              <Button
+                backgroundColor="#D6517D"
+                borderRadius="5px"
+                boxShadow="0px 2px 2px 1px #0F0F0F"
+                color="white"
+                cursor="pointer"
+                fontFamily="inherit"
+                padding="15px"
+                marginTop="10px"
+                onClick={handleMint}
+              >
+                Mint Here
+              </Button>
+            </div>
+          ) : (
+            <p>You're not connected. Please "Connect" in order to mint.</p>
+          )}
+        </Box>
+      </Flex>
+      <Flex className="cryptoDisplay">
         {filteredCoins.map((crypto) => {
           return (
             <Coin
@@ -138,8 +145,8 @@ const Mint = ({ accounts, setAccounts }) => {
             />
           );
         })}
-      </div>
-    </Flex>
+      </Flex>
+    </div>
   );
 };
 

@@ -3,11 +3,11 @@
 
 .App {
   text-align: center;
-  z-index: -1;
+  /* z-index: -1; */
   /* position: absolute; */
-  top: 0;
-  right: 000;
-  bottom: 0;
+  /* top: 0; */
+  /* right: 1000; */
+  /* bottom: 0; */
   font-family: "Press Start 2P", "VT323";
   color: yellow;
   background-image: url("https://i.pinimg.com/originals/48/37/23/483723e0f94bd43ef7b9716aa0d3ce86.gif");
@@ -22,33 +22,35 @@
 }
 
 body {
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
 }
 
 .overlay {
-  opacity: 0.85;
+  /* opacity: 0.85; */
   width: 100%;
   height: 100%;
   z-index: 10;
   top: 0;
   left: 0;
-  position: fixed;
+  /* position: fixed; */
+  /* overflow-y: scroll; */
 }
 
 .crypto {
-  width: 400px;
+  width: 300px;
   height: 300px;
   background-color: rgb(36, 36, 36);
   color: white;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: 10px;
-  margin: 20px;
+  margin: 10px;
   text-align: center;
 }
 
 .cryptoDisplay {
-  height: 800px;
-  margin-top: 20px;
+  flex-wrap: wrap;
+  height: 500px;
+  margin-top: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
