@@ -142,6 +142,7 @@ const Mint = ({ accounts, setAccounts }) => {
               icon={crypto.icon}
               price={crypto.price}
               symbol={crypto.symbol}
+              // priceChange={crypto.price_change_percentage_24h}
             />
           );
         })}

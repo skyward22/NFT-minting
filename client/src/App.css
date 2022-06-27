@@ -13,7 +13,8 @@
   background-image: url("https://i.pinimg.com/originals/48/37/23/483723e0f94bd43ef7b9716aa0d3ce86.gif");
   background-size: cover;
   background-attachment: fixed;
-  background-position: 40% 40%;
+  /* background-position: 40% 40%; */
+  /* margin-bottom: 300px; */
 }
 
 * {
@@ -38,7 +39,7 @@ body {
 
 .crypto {
   width: 300px;
-  height: 300px;
+  height: 250px;
   background-color: rgb(36, 36, 36);
   color: white;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -49,7 +50,7 @@ body {
 
 .cryptoDisplay {
   flex-wrap: wrap;
-  height: 500px;
+  height: 300px;
   margin-top: 10px;
   display: flex;
   justify-content: center;
