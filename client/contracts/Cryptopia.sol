@@ -1,8 +1,8 @@
-// SPDX-License-Identifer: UNLICENSED
-pragma solidity ^0.8.4; 
+// SPDX-License-Identifier: UNLICENSED
+pragma solidity ^0.8.4;
 
-import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
+import '@openzeppelin/contracts/token/ERC721/ERC721.sol';
+import '@openzeppelin/contracts/access/Ownable.sol';
 
 contract Cryptopia is ERC721, Ownable {
     uint256 public mintPrice;
@@ -11,18 +11,18 @@ contract Cryptopia is ERC721, Ownable {
     uint256 public maxPerWallet;
     bool public isPublicMintEnabled;
     string internal baseTokenUri;
-    address payable public withdrawlWallet;
+    address payable public withdrawWallet;
     mapping(address => uint256) public walletMints;
 
-    constructor() payable ERC721('Cryptopia', 'CP'){
-        mintPrice = .01 ether;
+    constructor() payable ERC721('Cryptopia', 'CP') {
+        mintPrice = 0.03 ether;
         totalSupply = 0;
         maxSupply = 1000;
         maxPerWallet = 3;
-        // set withdrawl wallet address
+        // withrawWallet = 'wallet address'haven't defined yet.
     }
 
-    function setIsPublicMintEnabled(bool isPublicMintEnabled_) external onlyOwner {
+    function setIsPublicisMintEnabled(bool isPublicMintEnabled_) external onlyOwner {
         isPublicMintEnabled = isPublicMintEnabled_;
     }
 
@@ -32,22 +32,22 @@ contract Cryptopia is ERC721, Ownable {
 
     function tokenURI(uint256 tokenId_) public view override returns (string memory) {
         require(_exists(tokenId_), 'Token does not exist!');
-        return string (abi.encodePacked(baseTokenUri, Strings.toString(tokenId_), ".json"));
+        return string(abi.encodePacked(baseTokenUri, Strings.toString(tokenId_), ".json"));
     }
 
-    function withdrawl() external onlyOwner {
-        (bool success, ) = withdrawlWallet.call{value: address(this).balance}('');
-        require(success, 'withdrawl failed');
+    function withdraw() external onlyOwner {
+        (bool success, ) = withdrawWallet.call{value: address(this).balance } ('');
+        require(success, 'withdraw failed');
     }
 
-    function mint(uint256 quantity_) public payable {
+    function mint(uint quantity_) public payable {
         require(isPublicMintEnabled, 'minting not enabled');
         require(msg.value == quantity_ * mintPrice, 'wrong mint value');
         require(totalSupply + quantity_ <= maxSupply, 'sold out');
-        require(walletMints[msg.sender] + quantity_ <= maxPerWallet, 'exceeded max wallet');
-        
-        for (uint256 i=0; i<quantity_; i++) {
-            uint256 newTokenId = totalSupply +1;
+        require(walletMints[msg.sender] + quantity_ <= maxPerWallet, 'exceed max wallet');
+
+        for (uint256 i = 0; i < quantity_; i++) {
+            uint256 newTokenId = totalSupply + 1;
             totalSupply++;
             _safeMint(msg.sender, newTokenId);
         }

@@ -4,10 +4,11 @@ import { Link, Route, Routes, BrowserRouter } from "react-router-dom";
 import Mint from "./components/Mint";
 import NavBar from "./components/NavBar";
 import Coin from "./components/Coin";
-import CryptoMarket from "./components/CryptoMarket";
+// import CryptoMarket from "./components/CryptoMarket";
 
 function App() {
   const [accounts, setAccounts] = useState([]);
+  //accounts in hardhat
 
   return (
     <div className="overlay">
