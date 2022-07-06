@@ -4,7 +4,7 @@ pragma solidity ^0.8.4;
 import '@openzeppelin/contracts/token/ERC721/ERC721.sol';
 import '@openzeppelin/contracts/access/Ownable.sol';
 
-contract Cryptopia is ERC721, Ownable {
+contract CryptopiaNFT is ERC721, Ownable {
     uint256 public mintPrice;
     uint256 public totalSupply;
     uint256 public maxSupply;
@@ -15,8 +15,8 @@ contract Cryptopia is ERC721, Ownable {
     mapping(address => uint256) public walletMints;
 
     constructor() payable ERC721('Cryptopia', 'CP') {
-        mintPrice = 0.03 ether;
-        totalSupply = 1000;
+        mintPrice = 0.008 ether;
+        totalSupply = 0;
         maxSupply = 1000;
         maxPerWallet = 100;
         // withrawWallet = 'wallet address'haven't defined yet.
@@ -40,7 +40,7 @@ contract Cryptopia is ERC721, Ownable {
         require(success, 'withdrawl failed');
     }
 
-    function mint(uint quantity_) public payable {
+    function mint(uint256 quantity_) public payable {
         require(isPublicMintEnabled, 'minting not enabled');
         require(msg.value == quantity_ * mintPrice, 'wrong mint value');
         require(totalSupply + quantity_ <= maxSupply, 'sold out');

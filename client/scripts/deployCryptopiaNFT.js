@@ -1,14 +1,12 @@
-
 const hre = require("hardhat");
 
 async function main() {
+  const CryptopiaNFT = await hre.ethers.getContractFactory("CryptopiaNFT");
+  const cryptopiaNFT = await CryptopiaNFT.deploy();
 
-  const Cryptopia = await hre.ethers.getContractFactory("Cryptopia");
-  const cryptopia = await Cryptopia.deploy(); 
+  await cryptopiaNFT.deployed();
 
-  await cryptopia.deployed();
-
-  console.log("Cryptopia deployed to:", cryptopia.address);
+  console.log("CryptopiaNFT deployed to:", cryptopiaNFT.address);
 }
 
 // We recommend this pattern to be able to use async/await everywhere
