@@ -50,7 +50,7 @@ const Mint = ({ accounts, setAccounts }) => {
   };
 
   const handleIncrement = () => {
-    if (mintAmount >= 3) return;
+    if (mintAmount >= 5) return;
     setMintAmount(mintAmount + 1);
   };
 
@@ -130,7 +130,10 @@ const Mint = ({ accounts, setAccounts }) => {
               </Button>
             </div>
           ) : (
-            <p>You're not connected. Please "Connect" in order to mint.</p>
+            <p>
+              You're not connected. Please "Connect" in order to mint. Minting
+              is .03 ETH/mint.{" "}
+            </p>
           )}
         </Box>
       </Flex>

@@ -11,18 +11,18 @@ contract Cryptopia is ERC721, Ownable {
     uint256 public maxPerWallet;
     bool public isPublicMintEnabled;
     string internal baseTokenUri;
-    address payable public withdrawWallet;
+    address payable public withdrawlWallet;
     mapping(address => uint256) public walletMints;
 
     constructor() payable ERC721('Cryptopia', 'CP') {
         mintPrice = 0.03 ether;
-        totalSupply = 0;
+        totalSupply = 1000;
         maxSupply = 1000;
-        maxPerWallet = 3;
+        maxPerWallet = 100;
         // withrawWallet = 'wallet address'haven't defined yet.
     }
 
-    function setIsPublicisMintEnabled(bool isPublicMintEnabled_) external onlyOwner {
+    function setIsPublicMintEnabled(bool isPublicMintEnabled_) external onlyOwner {
         isPublicMintEnabled = isPublicMintEnabled_;
     }
 
@@ -35,16 +35,16 @@ contract Cryptopia is ERC721, Ownable {
         return string(abi.encodePacked(baseTokenUri, Strings.toString(tokenId_), ".json"));
     }
 
-    function withdraw() external onlyOwner {
-        (bool success, ) = withdrawWallet.call{value: address(this).balance } ('');
-        require(success, 'withdraw failed');
+    function withdrawl() external onlyOwner {
+        (bool success, ) = withdrawlWallet.call{value: address(this).balance } ('');
+        require(success, 'withdrawl failed');
     }
 
     function mint(uint quantity_) public payable {
         require(isPublicMintEnabled, 'minting not enabled');
         require(msg.value == quantity_ * mintPrice, 'wrong mint value');
         require(totalSupply + quantity_ <= maxSupply, 'sold out');
-        require(walletMints[msg.sender] + quantity_ <= maxPerWallet, 'exceed max wallet');
+        require(walletMints[msg.sender] + quantity_ <= maxPerWallet, 'exceeded max wallet');
 
         for (uint256 i = 0; i < quantity_; i++) {
             uint256 newTokenId = totalSupply + 1;

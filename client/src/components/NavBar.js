@@ -6,7 +6,7 @@ import CryptoMarket from "./CryptoMarket";
 
 const NavBar = ({ accounts, setAccounts }) => {
   const isConnected = Boolean(accounts[0]);
-  const isDisconnected = Boolean(accounts[0]);
+  // const isDisconnected = Boolean(accounts[0]);
 
   async function connectAccount() {
     if (window.ethereum) {
@@ -56,7 +56,7 @@ const NavBar = ({ accounts, setAccounts }) => {
             margin="0 15px"
             onClick={connectAccount}
           >
-            Connect
+            Connect Wallet
           </Button>
         )}
         {/* disConnected */}
