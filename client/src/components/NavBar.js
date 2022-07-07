@@ -1,8 +1,8 @@
 import React from "react";
-import { Box, Button, Flex, Spacer, Link } from "@chakra-ui/react";
-import { Route, Routes } from "react-router-dom";
+import { Box, Button, Flex, Spacer } from "@chakra-ui/react";
+// import { Route, Routes } from "react-router-dom";
 import Social from "./Social";
-import CryptoMarket from "./CryptoMarket";
+// import CryptoMarket from "./CryptoMarket";
 
 const NavBar = ({ accounts, setAccounts }) => {
   const isConnected = Boolean(accounts[0]);

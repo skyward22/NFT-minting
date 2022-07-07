@@ -35,7 +35,7 @@ const Mint = ({ accounts, setAccounts }) => {
       );
       try {
         const response = await contract.mint(BigNumber.from(mintAmount), {
-          value: ethers.utils.parseEther((0.008 * mintAmount).toString()),
+          value: ethers.utils.parseEther((0.08 * mintAmount).toString()),
         });
         console.log("response: ", response);
       } catch (err) {
@@ -132,7 +132,7 @@ const Mint = ({ accounts, setAccounts }) => {
           ) : (
             <p>
               You're not connected. Please "Connect" in order to mint. Minting
-              is .03 ETH/mint.{" "}
+              is .08 ETH/mint.{" "}
             </p>
           )}
         </Box>

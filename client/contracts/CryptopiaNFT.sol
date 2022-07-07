@@ -15,7 +15,7 @@ contract CryptopiaNFT is ERC721, Ownable {
     mapping(address => uint256) public walletMints;
 
     constructor() payable ERC721('Cryptopia', 'CP') {
-        mintPrice = 0.008 ether;
+        mintPrice = 0.08 ether;
         totalSupply = 0;
         maxSupply = 1000;
         maxPerWallet = 100;
